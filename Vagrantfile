@@ -1,29 +1,4 @@
-# README: Instalace Zabbix Serveru
-
-
-
-# Požadavky
-- Vagrant    (verze 2.3.0 a vyšší)
-- VirtualBox (verze 7.0 a vyšší)
-- Git        (pro práci s repozitářem)
-
-
-
-# Příprava projektu
-
-1. Klonování repozitáře
-   
-   Naklonování projektu:
-   ```bash
-   git clone https://github.com/uzivatel/zabbix01.git
-   cd zabbix01
-   ```
-
-2. Vytvoření Vagrantfile
-   VagrantFile:
-
-   ```ruby
-   Vagrant.configure("2") do |config|
+Vagrant.configure("2") do |config|
   # Definice virtuálního stroje pro Zabbix Server
   config.vm.define "zabbix_server" do |server|
     server.vm.box = "debian/bookworm64"  # Debian 12 (Bookworm)
@@ -120,41 +95,3 @@
     SHELL
   end
 end
-
-   ```
-
-# Instalace Zabbix Serveru
-
-1. Spuštění Vagrant
-  
-   ```bash
-   vagrant up
-   ```
-
-2. Kontrola funkčnosti localhosta na portu 8080
-   Po úspěšné instalaci bude Zabbix dostupný na URL:
-
-   ```
-   http://localhost:8080/zabbix
-   ```
-
-# Nastavení Zabbixu
-
-1. Konfigurace databáze
-   Během konfigurace Zabbix serveru zadejte následující hodnoty:
-   - Database type: MySQL
-   - Database host: localhost
-   - Database port: 3306
-   - Database name: zabbix
-   - User: zabbix
-   - Password: zabbix_password
-
-2. Dokončení instalace
-   Proveďte zbývající kroky instalačního průvodce.
-
-# Přihlášení do Zabbixu
-
-- Uživatelské jméno: Admin
-- Heslo: zabbix
-
-
